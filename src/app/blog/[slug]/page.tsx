@@ -1,12 +1,12 @@
 import React from 'react'
-import Market from '../../../components/blogdetails/Market'
-import Footer from '../../../components/common/Footer'
+import Market from '../../../components/Market'
+import Article from '../../../components/common/Article'
 
 const page = () => {
     return (
         <div className='bg-darkBlue'>
             <Market />
-            <Footer />
+            <Article heading='Related'/>
         </div>
     )
 }

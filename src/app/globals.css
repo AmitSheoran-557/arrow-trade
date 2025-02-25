@@ -2,30 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
+
+* {
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
 }
+
 .scroll-none::-webkit-scrollbar {
   display: none;
 }
 
-/* =================================================================== */
-.card-slider {  
-  width: 100%;  
-  margin: auto;  
-}  
-.card {  
-  padding: 20px;  
-  text-align: center;  
-}  
-img {  
-  width: 100%;  
-  height: auto;  
-}  
-.slick-slider{
+/* ================================= slider css ================================== */
+.card-slider {
+  width: 100%;
+  margin: auto;
+}
+
+.card {
+  padding: 20px;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.slick-slider {
   display: flex !important;
   gap: 20px !important;
 }
-.slick-arrow{
+
+.slick-arrow {
   display: none !important;
+}
+
+/* ================================= scroll keyframe css ================================== */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-content {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.scrolling-content .flex {
+  display: flex;
+  flex-shrink: 0;
+}
+.group:hover .dropdown-icon svg path{
+  fill: #71CED0;
 }
