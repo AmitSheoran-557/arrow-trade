@@ -8,8 +8,9 @@ export const SearchIcon = () => (
 
 export const RightArrowIcon = () => (
     <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 11H20M20 11L11 2M20 11L11 20" stroke="#71CED0" strokeWidth="3" />
+    <path d="M0 11H20M20 11L11 2M20 11L11 20" stroke="#71CED0" strokeWidth="3"/>
     </svg>
+    
 );
 
 export const FacebookIcon = () => (
@@ -93,16 +94,16 @@ export const DropDownIcon = () => (
     </svg>
 );
 
-export const prevArrowIcon = () => (
+export const PrevArrowIcon = () => (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="60" height="60" rx="30" transform="matrix(-1 0 0 1 60 0)" fill="#71CED0" />
-        <path d="M45 31H15M15 31L28.5 17.5M15 31L28.5 44.5" stroke="#292929" stroke-width="3" />
+        <path d="M45 31H15M15 31L28.5 17.5M15 31L28.5 44.5" stroke="#292929" strokeWidth="3" />
     </svg>
 );
 
-export const nextArrowIcon = () => (
+export const NextArrowIcon = () => (
     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="60" height="60" rx="30" fill="#71CED0" />
-        <path d="M15 31H45M45 31L31.5 17.5M45 31L31.5 44.5" stroke="#292929" stroke-width="3" />
+        <path d="M15 31H45M45 31L31.5 17.5M45 31L31.5 44.5" stroke="#292929" strokeWidth="3" />
     </svg>
 );

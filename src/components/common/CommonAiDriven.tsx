@@ -45,7 +45,7 @@ const CommonAIDriven = ({
               width={635}
               height={550}
               alt="images"
-              className="pointer-events-none max-lg:max-w-[635px]"
+              className="pointer-events-none max-lg:max-w-[635px] w-full"
             />
           </div>
         </div>

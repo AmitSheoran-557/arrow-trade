@@ -7,7 +7,6 @@ import Description from './Description'
 const Footer = () => {
     return (
         <div className='bg-blueBlack w-full relative'>
-            <Image className='absolute pointer-events-none w-full right-0 top-0' src='/assets/images/webp/footer-trading-img.webp' alt='footer-bg' layout='fill' objectFit='cover' />
             <div className="container mx-auto px-4 lg:pt-[60px] lg:pb-20 max-lg:py-14 max-md:py-12">
                 <Link href='/'>
                     <Image className='max-w-[150px] w-full' src='/assets/images/webp/header-logo.webp' alt='footer-logo' width={150} height={44} />
@@ -27,13 +26,13 @@ const Footer = () => {
                 <Description customStyle='text-white/80 lg:text-base text-sm !text-start lg:mb-[50px] md:mb-8 mb-7' title="Arrow Trade S.A.R.L (Lebanon) is the sole entity authorized to operate the MetaTrader platform under our license. No other companies are involved in the operation or management of our MetaTrader license." />
                 <div className='flex lg:gap-6 gap-5'>
                     {SOCIAL_LINKS_LIST.map((item, index) => (
-                        <Link key={index} href={item.link} target='_blank' className='flex items-center justify-center rounded-full w-9 h-9'>
+                        <Link key={index} href={item.link} target='_blank' className='flex items-center transition-all ease-linear duration-300 hover:scale-125 justify-center rounded-full w-9 h-9'>
                             <Image src={item.image} alt={item.alt} width={24} height={24} />
                         </Link>
                     ))}
                 </div>
             </div>
-            <div className='w-full mx-auto text-center py-4'>
+            <div className='w-full mx-auto text-center py-4 border-t border-white/20'>
                 <p className='text-white/80 lg:text-base text-sm'>Copyright © ${new Date().getFullYear()} ArrowTrade. All Rights Reserved.</p>
             </div>
         </div>

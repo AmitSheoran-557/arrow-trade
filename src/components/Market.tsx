@@ -7,8 +7,8 @@ const Market = () => {
   return (
 
     <div className="flex justify-center bg-darkBlue items-center xl:pt-[150px] lg:pt-32 md:pt-24 sm:pt-16 pt-12">
-      <div className="flex max-lg:flex-col container relative max-w-[1140px] ">
-        <div className="flex flex-col gap-y-[180px] max-lg:px-4">
+      <div className="flex max-lg:flex-col container relative max-w-[1140px] w-full">
+        <div className="flex flex-col xl:gap-y-[180px] lg:gap-32 md:gap-24 sm:gap-16 gap-10 max-lg:px-4">
           <CommonAIDriven map={MARKET_INSIGHTS_LIST} heading="What are AI-Driven " colorHeading="Market Insights?"
             description="AI-driven market insights harness the power of artificial intelligence to analyze vast amounts of market data in real time, providing actionable information that can help traders and investors make informed decisions."
             image="/assets/images/webp/ai-driven-img-1.webp"

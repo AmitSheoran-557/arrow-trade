@@ -5,6 +5,8 @@ import React, { useState, useEffect } from "react";
 import { NAV_LINKS_LIST } from "../../utils/helper";
 import { useRouter, usePathname } from "next/navigation";
 import { DropDownIcon } from "../../utils/icons";
+import CustomButton from "./CustomButton";
+import NProgress from 'nprogress';
 
 const Header: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -16,6 +18,9 @@ const Header: React.FC = () => {
     useEffect(() => {
         const currentPath = pathname;
         const selectedLinkIndex = NAV_LINKS_LIST.findIndex((link) => link.link === currentPath);
+        setTimeout(() => {
+            NProgress.done();
+          }, 400);
         if (selectedLinkIndex !== -1) {
             setSelectedIndex(selectedLinkIndex);
         }
@@ -33,12 +38,15 @@ const Header: React.FC = () => {
         setOpen(!open);
         setSelectedIndex(index);
         router.push(path);
+        setTimeout(() => {
+            NProgress.done();
+          }, 400);
     };
 
     return (
-        <div className={`flex justify-between bg-darkBlue flex-col w-full z-20 relative`}>
-            <div className="max-w-[1220px] max-2xl:px-4 flex w-full mx-auto items-center relative">
-                <div className="bg-white/10 w-full flex justify-between items-center lg:py-4 py-3 lg:pe-10 lg:ps-[88px] max-lg:px-10 max-md:px-7 max-sm:px-5 lg:mt-4 mt-3 rounded-[60px] border-white/15 border backdrop:blur-xl">
+        <div className={`flex justify-between bg-darkBlue flex-col w-full relative`}>
+            <div className="max-w-[1220px] max-2xl:px-4 flex w-full mx-auto items-center relative z-50">
+                <div className="bg-transparent w-full flex justify-between items-center lg:py-4 py-3 lg:pe-10 lg:ps-[88px] max-lg:px-10 max-md:px-7 max-sm:px-5 lg:mt-4 mt-3 rounded-[60px] border-white/15 border backdrop-blur-xl">
                     <button onClick={() => setOpen(!open)} className={`hidden md:max-w-10 md:h-11 h-full max-w-8 w-full justify-center items-center max-lg:absolute max-lg:right-12 max-md:right-12 max-sm:right-10 relative z-[70] max-lg:flex flex-col overflow-hidden`}>
                         <span className={`w-full transition-all duration-300 md:min-h-1 md:min-w-10 max-md:min-w-8 h-[3.5px] md:mb-2 mb-1.5 !rounded-full bg-white relative after:w-full after:h-full after:absolute after:top-0 after:left-0 ${open ? "rotate-45 md:!-mb-1 after:rotate-90 after:!rounded-sm after:bg-white !bg-white" : ""}`}></span>
                         <span className={`w-full transition-all duration-300 md:min-h-1 md:min-w-10 max-md:min-w-8 h-[3.5px] md:mb-2 mb-1.5 !rounded-full bg-white ${open ? "hidden" : ""}`}></span>
@@ -62,7 +70,7 @@ const Header: React.FC = () => {
                                 {item.dropdownContent && hoveredIndex === index && (
                                     <div className="absolute left-0 top-full pt-2 max-w-xs lg:bg-white max-lg:bg-white transition-all ease-linear duration-300 shadow-lg rounded-xl p-4 w-full">
                                         {item.dropdownContent.map((dropdownItem, dropdownIndex) => (
-                                            <Link key={dropdownIndex}  href={dropdownItem.link}  className="text-black flex w-full hover:text-lightSkyBlue cursor-pointer mt-0.5 hover:scale-110 transition-all ease-linear duration-300">
+                                            <Link key={dropdownIndex} href={dropdownItem.link} className="text-black flex w-full hover:text-lightSkyBlue cursor-pointer mt-0.5 hover:scale-110 transition-all ease-linear duration-300">
                                                 {dropdownItem.title}
                                             </Link>
                                         ))}
@@ -70,24 +78,15 @@ const Header: React.FC = () => {
                                 )}
                             </div>
                         ))}
-
                         <div className="md:hidden max-md:block">
-                            <button onClick={() => setOpen(!open)} className="flex items-center mb-5 justify-center !leading-[120%] whitespace-nowrap linear-gradient transition-all ease-linear duration-300 hover:shadow-[_0px_4px_24.6px_0px_#71CED061] hover:text-black text-lightSkyBlue border border-lightSkyBlue bg-transparent hover:bg-lightSkyBlue lg:px-[15.5px] px-3 lg:py-[16.1px] py-3 rounded-[72px] lg:text-base text-sm font-semibold">
-                                Sign Up
-                            </button>
-                            <button onClick={() => setOpen(!open)} className="flex items-center justify-center !leading-[120%] whitespace-nowrap linear-gradient transition-all ease-linear duration-300 shadow-[_0px_4px_24.6px_0px_#71CED061] text-black hover:text-lightSkyBlue border border-transparent hover:bg-transparent hover:border-lightSkyBlue bg-lightSkyBlue lg:px-6 px-4 lg:py-[16.1px] py-3 rounded-[72px] lg:text-base text-sm font-semibold">
-                                Login
-                            </button>
+                            <CustomButton title="Sign Up" onClick={() => setOpen(!open)} customStyles="mb-5 hover:shadow-[_0px_4px_24.6px_0px_#71CED061] hover:text-black text-lightSkyBlue border border-lightSkyBlue bg-transparent hover:bg-lightSkyBlue lg:px-[15.5px] px-3 lg:py-[16.1px] py-3" />
+                            <CustomButton title="Login" onClick={() => setOpen(!open)} customStyles="shadow-[_0px_4px_24.6px_0px_#71CED061] text-black hover:text-lightSkyBlue border border-transparent hover:bg-transparent hover:border-lightSkyBlue bg-lightSkyBlue lg:px-6 px-4 lg:py-[16.1px] py-3" />
                         </div>
                     </div>
                     <div className="md:block max-md:hidden max-lg:mr-20">
                         <div className="flex lg:gap-6 gap-5">
-                            <button className="flex items-center justify-center !leading-[120%] whitespace-nowrap linear-gradient transition-all ease-linear duration-300 hover:shadow-[_0px_4px_24.6px_0px_#71CED061] hover:text-black text-lightSkyBlue border border-lightSkyBlue bg-transparent hover:bg-lightSkyBlue lg:px-[15.5px] px-3 lg:py-[16.1px] py-3 rounded-[72px] lg:text-base text-sm font-semibold">
-                                Sign Up
-                            </button>
-                            <button className="flex items-center justify-center !leading-[120%] whitespace-nowrap linear-gradient transition-all ease-linear duration-300 shadow-[_0px_4px_24.6px_0px_#71CED061] text-black hover:text-lightSkyBlue border border-transparent hover:bg-transparent hover:border-lightSkyBlue bg-lightSkyBlue lg:px-6 px-4 lg:py-[16.1px] py-3 rounded-[72px] lg:text-base text-sm font-semibold">
-                                Login
-                            </button>
+                            <CustomButton title="Sign Up" customStyles="hover:shadow-[_0px_4px_24.6px_0px_#71CED061] hover:text-black text-lightSkyBlue border border-lightSkyBlue bg-transparent hover:bg-lightSkyBlue lg:px-[15.5px] px-3 lg:py-[16.1px] py-3" />
+                            <CustomButton title="Login" customStyles="shadow-[_0px_4px_24.6px_0px_#71CED061] text-black hover:text-lightSkyBlue border border-transparent hover:bg-transparent hover:border-lightSkyBlue bg-lightSkyBlue lg:px-6 px-4 lg:py-[16.1px] py-3" />
                         </div>
                     </div>
                 </div>

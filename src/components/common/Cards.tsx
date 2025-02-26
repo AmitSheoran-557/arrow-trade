@@ -45,20 +45,20 @@ const Cards: React.FC = () => {
         if (param) setOpen(parseInt(param) * 3);
     }, [searchParams]);
 
-    const filteredCards = CARDS_DATA_LIST.filter((card) =>
+    const CARDS_DATA = CARDS_DATA_LIST.filter((card) =>
         card.title.toLowerCase().includes(search.toLowerCase())
     );
-    const BlogCard = filteredCards.slice(0, open);
+    const BlogCard = CARDS_DATA.slice(0, open);
 
     const handleShowMore = () => {
-        const nextPage = open < filteredCards.length ? open / 3 + 1 : 1;
+        const nextPage = open < CARDS_DATA.length ? open / 3 + 1 : 1;
         setOpen(nextPage * 3);
         router.push(`?page=${nextPage}`);
     };
 
     return (
         <div className="container pb-[30px] mx-auto max-2xl:px-4">
-            <Image className="absolute pointer-events-none top-[140%] right-0 max-w-[230px] " src="/assets/images/webp/article-ellipse.webp" alt="shadow-img" width={100} height={200} />
+            <Image className="absolute pointer-events-none top-[140%] right-0 max-w-[230px] w-auto h-auto" src="/assets/images/webp/article-ellipse.webp" alt="shadow-img" width={100} height={200} />
             <div className="lg:pb-[70px] pb-14 w-full flex flex-col justify-center">
                 <h1 className='lg:text-[64px] lg:pt-[70px] pt-14 md:text-5xl text-4xl lg:mb-4 mb-3 text-center text-white lg:max-w-2xl max-w-lg mx-auto'>
                     Unlock Knowledge with Our <span className='text-lightSkyBlue'>Featured Articles</span>
@@ -72,7 +72,7 @@ const Cards: React.FC = () => {
                 </div>
             </div>
             <div className="flex flex-wrap justify-center gap-5">
-                {filteredCards.length === 0 ? (
+                {CARDS_DATA.length === 0 ? (
                     <div className="text-center text-white mt-6">
                         <h2 className="text-lg font-semibold">No Cards Found</h2>
                     </div>
@@ -81,7 +81,7 @@ const Cards: React.FC = () => {
                 )}
             </div>
             <button className="flex mx-auto lg:mt-5 mt-4 items-center justify-center !leading-[120%] whitespace-nowrap linear-gradient transition-all ease-linear duration-300 shadow-[_0px_4px_24.6px_0px_#71CED061] text-black hover:text-lightSkyBlue border border-transparent hover:bg-transparent hover:border-lightSkyBlue bg-lightSkyBlue lg:px-6 px-4 lg:py-[16.1px] py-3 rounded-[72px] lg:text-base text-sm font-semibold" onClick={handleShowMore}>
-                {open < filteredCards.length ? "Show all cards" : "Hide all cards"}
+                {open < CARDS_DATA.length ? "See All Blogs" : "Hide All Blogs"}
             </button>
         </div>
     );

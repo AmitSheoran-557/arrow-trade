@@ -8,6 +8,10 @@
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .scroll-none::-webkit-scrollbar {
   display: none;
 }
@@ -23,11 +27,6 @@
   text-align: center;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 .slick-slider {
   display: flex !important;
   gap: 20px !important;
@@ -35,6 +34,11 @@ img {
 
 .slick-arrow {
   display: none !important;
+}
+
+.slick-dots button::before {
+  color: #71CED0 !important;
+  font-size: 10px !important;
 }
 
 /* ================================= scroll keyframe css ================================== */
@@ -57,6 +61,14 @@ img {
   display: flex;
   flex-shrink: 0;
 }
-.group:hover .dropdown-icon svg path{
+
+.group:hover .dropdown-icon svg path {
   fill: #71CED0;
+}
+
+@media (max-width: 991.99px) {
+  .slick-track {
+    display: flex !important;
+    gap: 20px !important;
+  }
 }

@@ -18,8 +18,8 @@ export const NAV_LINKS_LIST: { link: string; title: string; dropdownContent?: { 
     link: "#promotions",
     title: "Promotions",
     dropdownContent: [
-      { title: "Promotion link 1", link: "#promotion1" },
-      { title: "Promotion link 2", link: "#promotion2" },
+      { title: "link one", link: "#promotion1" },
+      { title: "link two", link: "#promotion2" },
     ],
   },
   { link: "/arrowtrade", title: "Arrowtrade" },
@@ -110,7 +110,40 @@ export const CARDS_DATA_LIST = [
     authorImage: '/assets/images/webp/card-profile-img-6.webp',
     author: 'Kristin Watson',
     isFeatured: false,
-  }
+  },
+  {
+    id: 'real-time-market-insights-2',
+    cardImage: "/assets/images/webp/card-img-1.webp",
+    date: '31 Jan 2025',
+    title: 'Real-Time Market Insights',
+    description: 'Stay ahead with AI-driven analytics, real-time news updates, and expert market research to make informed decisions.',
+    readTime: '3 min read',
+    authorImage: '/assets/images/webp/card-profile-img-1.webp',
+    author: 'Darrell Steward',
+    isFeatured: true,
+  },
+  {
+    id: 'advanced-trading-platform-2',
+    cardImage: "/assets/images/webp/card-img-2.webp",
+    date: '29 Jan 2025',
+    title: 'Advanced Trading Platform',
+    description: 'Experience lightning-fast execution, customizable charts, and an intuitive interface designed for traders of all levels.',
+    readTime: '7 min read',
+    authorImage: '/assets/images/webp/card-profile-img-2.webp',
+    author: 'Jerome Bell',
+    isFeatured: false,
+  },
+  {
+    id: 'mastering-the-market-2',
+    cardImage: "/assets/images/webp/card-img-3.webp",
+    date: '20 Dec 2025',
+    title: 'Mastering the Markets',
+    description: 'Mastering the markets involves developing a comprehensive understanding of how financial markets work, creating.',
+    readTime: '4 min read',
+    authorImage: '/assets/images/webp/card-profile-img-3.webp',
+    author: 'Eleanor Pena',
+    isFeatured: true,
+  },
 ];
 
 export const MARKET_HEADING_LIST: string[] = [
